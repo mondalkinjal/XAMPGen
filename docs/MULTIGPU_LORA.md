@@ -24,7 +24,9 @@ prepares the model/optimizer/data loader with `accelerator.prepare(...)`, uses
 with active `Trainer(...)` and `training.train(args.num_epochs)` calls.
 Its default epoch count is 30, sequence length 150, and local batch size 64.
 Default input checkpoint: `pretrain_progen_full.pth`; default output checkpoint:
-`finetuned_progen_full.pth`. These weights are distributed separately from source.
+`finetuned_progen_full.pth`. Obtain the pretrained input through the [original ProGen paper](https://doi.org/10.1038/s41587-022-01618-2).
+The original XAMPGen fine-tuned checkpoint is described in
+[MODEL_WEIGHTS.md](MODEL_WEIGHTS.md).
 
 The H100 launcher starts `finetune_progen_lora_multigpu_h100.py` with four Accelerate processes.
 Its active LoRA and distributed training structure is retained unchanged.

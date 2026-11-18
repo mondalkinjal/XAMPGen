@@ -13,9 +13,10 @@ are written under `reproduced/`.
 
 The recorded check is in [cached_verification.json](cached_verification.json).
 Token mappings, small MIC scalers, saved probe results, and attention caches are
-included. Model weights are available from the [model release](https://github.com/mondalkinjal/XAMPGen/releases/tag/model-weights-20261118);
-see [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md) for verified downloads. The Swiss-Prot
-database is excluded. Checkpoint
+included. The original, single-file XAMPGen checkpoint and its download status
+are described in [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md). Obtain pretrained
+ProGen from the [original authors](https://doi.org/10.1038/s41587-022-01618-2). The Swiss-Prot database
+is excluded. Checkpoint
 training, peptide generation, full candidate screening, and new BLAST searches
 have not been independently rerun for this release.
 
@@ -28,7 +29,7 @@ released ProGen training/generation scripts is now documented in
 [TRAINING_GENERATION.md](TRAINING_GENERATION.md), with a small CPU LoRA training
 check and full checkpoint tensor-name/shape checks.
 
-`finetuned_progen.pth` and `finetuned_progen_full.pth` are distinct checkpoints;
-use the filename expected by each saved implementation. The correspondence
-between a historical training job and a specific checkpoint has not been
-independently established.
+Generation and interpretation use the original `finetuned_progen.pth`.
+The separate local `finetuned_progen_full.pth` is not distributed by this release.
+The correspondence between a historical training job and a specific local
+checkpoint has not been independently established.

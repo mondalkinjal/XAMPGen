@@ -47,7 +47,10 @@ position in that budget.
 The inputs are the model checkpoint and files in `mapping_files/`. These include
 the vocabulary, amino-acid token IDs, and keyword/taxonomy mappings. The mappings
 must correspond to the checkpoint's vocabulary. The large checkpoint files are
-kept separately from this source repository.
+kept separately from this source repository. Use the original single-file
+`finetuned_progen.pth`; see [model-weight availability](../docs/MODEL_WEIGHTS.md).
+Obtain the pretrained ProGen checkpoint from the [original paper](https://doi.org/10.1038/s41587-022-01618-2)
+and the authors' resources.
 
 | Argument | What it controls in the saved scripts |
 | --- | --- |

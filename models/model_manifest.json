@@ -1,92 +1,18 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "models": [
     {
-      "name": "pretrain_progen_full.pth",
-      "role": "Pretrained initialization for training and pretrained generation",
-      "bytes": 4629670777,
-      "sha256": "6a833d040c71d475cdd993a9f001683c7b985b51214c162b1cd0b3c82ca0aaf7",
-      "download_base_url": "https://github.com/mondalkinjal/XAMPGen/releases/download/model-weights-20261118",
-      "parts": [
-        {
-          "name": "pretrain_progen_full.pth.part000",
-          "bytes": 1500000000,
-          "sha256": "86e9a6a309f47263d0cb14e916dace326330b52137ef6460850c3673736623a0"
-        },
-        {
-          "name": "pretrain_progen_full.pth.part001",
-          "bytes": 1500000000,
-          "sha256": "72263078e20bf341893f2db73a026df41662470536107848952959044eeef21a"
-        },
-        {
-          "name": "pretrain_progen_full.pth.part002",
-          "bytes": 1500000000,
-          "sha256": "44c59b0106f134aeabbc7acc1a4f5948742af33b10731d3fd2f15710558e5305"
-        },
-        {
-          "name": "pretrain_progen_full.pth.part003",
-          "bytes": 129670777,
-          "sha256": "ad0c93d669acfa5dbb829035e0d843f1d0224bd402f928283adad40f1725016c"
-        }
-      ]
-    },
-    {
       "name": "finetuned_progen.pth",
-      "role": "Primary checkpoint for generation and default probing, attention, and motif interpretation",
       "bytes": 4665433262,
       "sha256": "b98ddeb00335390744c4c653c3c1f5b72da42a8d05fde4bf5703330e14a0da70",
-      "download_base_url": "https://github.com/mondalkinjal/XAMPGen/releases/download/model-weights-20261118",
-      "parts": [
-        {
-          "name": "finetuned_progen.pth.part000",
-          "bytes": 1500000000,
-          "sha256": "f80885e4fd3b2e941ae96d285d747bb6609ffe4137a1cbeb45ed51044f13e046"
-        },
-        {
-          "name": "finetuned_progen.pth.part001",
-          "bytes": 1500000000,
-          "sha256": "7b44d972192d1acf255be46e3604cbe2bddc12bf640c93eb2e03c9aca9a6bb7d"
-        },
-        {
-          "name": "finetuned_progen.pth.part002",
-          "bytes": 1500000000,
-          "sha256": "7a05e8e4ee34ed0d23da36ef860fbd06aa7663719369e70c56ab2e5d629d085a"
-        },
-        {
-          "name": "finetuned_progen.pth.part003",
-          "bytes": 165433262,
-          "sha256": "1755ac910ec767cc7278de788ce41603fdd6b21b05ebd6ddccd532f84ffcc12f"
-        }
-      ]
-    },
-    {
-      "name": "finetuned_progen_full.pth",
-      "role": "Optional distinct fine-tuned checkpoint; also the A100 training default output filename, with historical job provenance unverified",
-      "bytes": 4665439062,
-      "sha256": "c9112ae2f1bb8171608d899eea94c4094aaf58b85130be5c83a076a8cb095c4b",
-      "download_base_url": "https://github.com/mondalkinjal/XAMPGen/releases/download/model-weights-20261118",
-      "parts": [
-        {
-          "name": "finetuned_progen_full.pth.part000",
-          "bytes": 1500000000,
-          "sha256": "d267912705e49151a3eda92c36c456591fa4cf919f91c20b6a3505165645980a"
-        },
-        {
-          "name": "finetuned_progen_full.pth.part001",
-          "bytes": 1500000000,
-          "sha256": "bcf5e642b105448fb0d62a65a4b97d1bb8d64bf410f7ec9af89e95b033545af3"
-        },
-        {
-          "name": "finetuned_progen_full.pth.part002",
-          "bytes": 1500000000,
-          "sha256": "bbcffdba104d67564fb8f8c3dbd042066edff34c8f10352a34647226d4a03f13"
-        },
-        {
-          "name": "finetuned_progen_full.pth.part003",
-          "bytes": 165439062,
-          "sha256": "81de277b2d64a7945cb783163a4e1f1082c6c76bba8e0416864a67e972db89a2"
-        }
-      ]
+      "download_url": null,
+      "role": "Generation, probing, attention, and motif interpretation",
+      "format": "Original PyTorch checkpoint containing model and optimizer states; unchanged bytes"
     }
-  ]
+  ],
+  "pretrained_progen": {
+    "source": "Original ProGen paper and authors' resources",
+    "paper_url": "https://doi.org/10.1038/s41587-022-01618-2",
+    "redistributed": false
+  }
 }

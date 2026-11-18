@@ -1,19 +1,42 @@
 # Model weights
 
-**Publication status:** all three original checkpoints are publicly available in
-the [XAMPGen model release](https://github.com/mondalkinjal/XAMPGen/releases/tag/model-weights-20261118). GitHub asset sizes and
-SHA-256 hashes were verified for all 12 parts before publication.
+XAMPGen uses the author's original **`finetuned_progen.pth`** checkpoint for both
+generation and interpretation. It is one unchanged PyTorch file containing the
+model and optimizer states. It is not converted, compressed, split, or stripped.
 
-| Checkpoint | Bytes | Use |
+**Download status:** the original single file is preserved locally. A public
+download host for this 4.7 GB file is being selected. No public download URL is
+configured yet. The earlier split-file release has been withdrawn.
+
+| File | Exact bytes | Use |
 | --- | ---: | --- |
-| `pretrain_progen_full.pth` | 4,629,670,777 | Initialization for training and the pretrained generation comparison |
-| `finetuned_progen.pth` | 4,665,433,262 | Primary checkpoint for generation and default probing/attention/motif interpretation |
-| `finetuned_progen_full.pth` | 4,665,439,062 | Optional distinct checkpoint; also the default output filename of the A100 training variant |
+| `finetuned_progen.pth` | 4,665,433,262 | Generation, probing, attention, and motif interpretation |
 
-## Which checkpoint to use
+Original-file SHA-256:
 
-Use **`finetuned_progen.pth`** for both generation and interpretation with the
-released scripts:
+```text
+b98ddeb00335390744c4c653c3c1f5b72da42a8d05fde4bf5703330e14a0da70
+```
+
+The same metadata is in [model_manifest.json](../models/model_manifest.json) and
+[SHA256SUMS](../models/SHA256SUMS). Verify an existing original checkpoint with:
+
+```bash
+python tools/download_model_weights.py --verify-only /path/to/finetuned_progen.pth
+```
+
+Once its public download link is configured, download the whole file with:
+
+```bash
+python tools/download_model_weights.py
+```
+
+The default destination is `sequence_gen/finetuned_progen.pth`. A matching file
+already present is verified and reused. A mismatched existing file is rejected
+without replacing it. The downloader preserves the original bytes and checks
+the full-file SHA-256 before accepting a download.
+
+## Which checkpoint the interpretation scripts use
 
 | Task | Checkpoint selection |
 | --- | --- |
@@ -21,47 +44,27 @@ released scripts:
 | Motif and known-peptide attention rescans | `motif_head_lib.py` defaults to `finetuned_progen.pth` |
 | Multi-seed probing | `probing_multiseed.py` defaults to `finetuned_progen.pth` |
 | Main classification/regression probing | Pass `--checkpoint finetuned_progen.pth` |
-| Figures from included attention/probe caches | No checkpoint needed |
-| Pretrained comparison and training initialization | `pretrain_progen_full.pth` |
+| Figures from saved attention/probe caches | No checkpoint needed |
 
-`finetuned_progen_full.pth` is optional for these workflows. It is retained as
-a distinct existing checkpoint, not designated as the interpretation model.
-This table describes the file selection in the released code.
+The separate local file `finetuned_progen_full.pth` is preserved locally and is
+not distributed here. The released generation and interpretation defaults use
+the checkpoint listed above. Historical training-job provenance has not been
+independently established for the local files.
 
-The fine-tuned files contain `model` and `optimizer` states. The pretrained file
-is a plain model state dictionary. All three use the released 36-layer,
-1280-dimensional architecture and a vocabulary of 129,407 tokens. The fine-tuned
-models use rank-16 LoRA adapters on `Wq` and `Wk`. Historical training-job provenance
-has not been independently established. A checkpoint filename does not establish
-which historical job produced it.
+## Pretrained ProGen
 
-Each file is split into four ordered parts, each at most 1,500,000,000 bytes,
-to fit GitHub's [release asset limit](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases).
-The split preserves every byte, including optimizer states. File and part
-SHA-256 hashes are recorded in [model_manifest.json](../models/model_manifest.json).
-[SHA256SUMS](../models/SHA256SUMS) lists the individual parts.
+For the original pretrained ProGen checkpoint, refer to **Madani et al. (2023),
+Large language models generate functional protein sequences across diverse
+families**, [Nature Biotechnology](https://doi.org/10.1038/s41587-022-01618-2) and the authors' resources
+linked from that paper. This repository does not redistribute the pretrained
+ProGen checkpoint.
 
-From the repository root, download and restore the generation checkpoint:
+Training and the pretrained generation comparison expect a compatible PyTorch
+state dictionary at `sequence_gen/pretrain_progen_full.pth`. Follow the original
+authors' instructions for obtaining the pretrained model; the released XAMPGen
+scripts require the tensor names and shapes expected by this implementation.
+The fine-tuned generation and interpretation workflows load the full XAMPGen
+checkpoint directly and do not require a separate pretrained file.
 
-```bash
-python tools/restore_model_weights.py --model finetuned_progen.pth
-```
-
-If you already downloaded the release parts, pass `--parts-dir /path/to/downloaded-parts`
-to reuse them. The tool needs only Python's standard library.
-
-Omit `--model` to restore all three. The default output directory is
-`sequence_gen/`. Use `--output-dir` to choose another directory. Each part and the
-assembled file are verified against the manifest. An existing matching checkpoint
-is reused; an existing mismatched checkpoint is rejected rather than replaced.
-The manifest records the verified public release download directory. Missing
-parts download automatically; `--base-url` optionally selects another mirror.
-
-Allow about 14 GB for all parts and another 14 GB for the restored checkpoints.
-For generation with the fine-tuned model alone, allow about 9.4 GB for its parts
-and restored file. These disk sizes are not GPU memory estimates.
-
-To check the environment and checkpoint architecture, use the commands in
-[TRAINING_GENERATION.md](TRAINING_GENERATION.md). Package imports and shape checks
-do not establish that a complete multi-GPU training run or CUDA generation was
-reproduced. Attribution for the upstream model/code is in [THIRD_PARTY.md](THIRD_PARTY.md).
+See [TRAINING_GENERATION.md](TRAINING_GENERATION.md) for the environment and run
+commands, and [THIRD_PARTY.md](THIRD_PARTY.md) for attribution.

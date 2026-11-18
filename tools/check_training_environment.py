@@ -23,6 +23,14 @@ def working_directory(path):
         os.chdir(previous)
 
 
+def checkpoint_files(directory):
+    names = ['pretrain_progen_full.pth', 'finetuned_progen.pth', 'finetuned_progen_full.pth']
+    provided = [name for name in names if (directory / name).is_file()]
+    if not provided:
+        raise RuntimeError('No recognized checkpoint files found in ' + str(directory))
+    return provided, [name for name in names if name not in provided]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--checkpoint-dir', type=Path)
@@ -95,8 +103,9 @@ def main():
                   cuda_build=torch.version.cuda, cuda_available=torch.cuda.is_available(),
                   cpu_lora_training_step=True, smoke_loss=loss.item(), checkpoints={})
     if args.checkpoint_dir:
-        # Fake tensors validate every name and shape without allocating 14 GB of weights.
-        for name in ['pretrain_progen_full.pth', 'finetuned_progen.pth', 'finetuned_progen_full.pth']:
+        provided, report['checkpoints_not_provided'] = checkpoint_files(args.checkpoint_dir)
+        # Validate names and shapes without allocating the full checkpoint tensors.
+        for name in provided:
             with FakeTensorMode():
                 checkpoint = torch.load(args.checkpoint_dir / name, map_location='cpu', weights_only=True)
             state = checkpoint.get('model', checkpoint)

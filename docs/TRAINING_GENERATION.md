@@ -26,7 +26,7 @@ python tools/check_training_environment.py --require-cuda
 
 The environment checker runs one small CPU LoRA/Accelerate optimization step and
 writes a TensorBoard event. It does not train the full ProGen model. Its optional
-checkpoint check verifies every tensor name and shape against the released
+checkpoint check verifies the provided checkpoint files against the released
 architecture without allocating the complete model:
 
 ```bash
@@ -36,6 +36,9 @@ python tools/check_training_environment.py \
 ```
 
 Recorded validation is in [training-generation-validation.json](training-generation-validation.json).
+That recorded run checked all three original local checkpoint files. The checker
+now checks whichever recognized files are provided, so a directory containing
+only `finetuned_progen.pth` is sufficient. Missing optional files are reported.
 This is a reconstructed environment, not a claim about the exact historical
 environment or scheduler job used to produce each checkpoint. Full CUDA generation
 and multi-GPU fine-tuning have not been rerun for this environment release.
@@ -43,9 +46,10 @@ and multi-GPU fine-tuning have not been rerun for this environment release.
 ## Model checkpoints
 
 See [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md) for the checkpoint inventory, checksums,
-publication status, and restore command. Files must retain their documented names
-under `sequence_gen/`. The two fine-tuned files are distinct and must not be
-substituted for each other based on filename alone.
+publication status, and verification command. Files must retain their documented names
+under `sequence_gen/`. Use the unchanged `finetuned_progen.pth` for generation and interpretation.
+Obtain the pretrained ProGen checkpoint from the original authors for fine-tuning
+or the pretrained comparison; this repository does not redistribute it.
 
 ## Fine-tuning
 
@@ -79,7 +83,7 @@ leave precision at its default. See [MULTIGPU_LORA.md](MULTIGPU_LORA.md).
 
 ## Candidate generation
 
-With `finetuned_progen.pth` restored, run a small example on a CUDA GPU from
+With the original `finetuned_progen.pth` in place, run a small example on a CUDA GPU from
 `sequence_gen/`:
 
 ```bash
