@@ -33,3 +33,10 @@ Generation and interpretation use the original `finetuned_progen.pth`.
 The separate local `finetuned_progen_full.pth` is not distributed by this release.
 The correspondence between a historical training job and a specific local
 checkpoint has not been independently established.
+
+## Unknown-peptide attention extraction
+
+The original cache producer and its sequence-list dependency are now included.
+See [UNKNOWN_PEPTIDE_ATTENTION.md](UNKNOWN_PEPTIDE_ATTENTION.md) for extracting
+all-layer attention from the original fine-tuned checkpoint, the exact plotting
+transformation, and rendering the P1-P18 figures from a new or supplied cache.

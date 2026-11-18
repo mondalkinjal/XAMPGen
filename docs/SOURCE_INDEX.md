@@ -1,8 +1,8 @@
 # Included scripts
 
-The release contains 31 Python files and 10 Bash files. Supporting modules
-are included to preserve local imports. Research-script contents are copied
-unchanged from the reviewed code folder.
+The release contains 35 Python files and 11 Bash files. Supporting modules
+are included to preserve local imports. Research-script contents are preserved
+from the reviewed local sources; release utilities are listed separately below.
 
 - [sequence_gen/ProteinDataset.py](../sequence_gen/ProteinDataset.py)
 - [sequence_gen/correlation_map.py](../sequence_gen/correlation_map.py)
@@ -45,3 +45,13 @@ unchanged from the reviewed code folder.
 - [sequence_gen/reproduce_figures.sh](../sequence_gen/reproduce_figures.sh)
 - [sequence_gen/submit_progen_lora_a100_4gpu.sh](../sequence_gen/submit_progen_lora_a100_4gpu.sh)
 - [sequence_gen/submit_progen_lora_h100_4gpu.sh](../sequence_gen/submit_progen_lora_h100_4gpu.sh)
+
+## Attention extraction and release utilities
+
+- [sequence_gen/top10_layers.py](../sequence_gen/top10_layers.py): original all-layer attention-cache producer.
+- [sequence_gen/helicity_scan.py](../sequence_gen/helicity_scan.py): original P1-P18 sequences and layer-22 companion scan.
+- [sequence_gen/top10_layers.sh](../sequence_gen/top10_layers.sh): original Slurm launcher.
+- [tools/check_training_environment.py](../tools/check_training_environment.py): environment and checkpoint checks.
+- [tools/download_model_weights.py](../tools/download_model_weights.py): download/verify the original single-file checkpoint.
+
+Extraction and plotting steps are explained in [UNKNOWN_PEPTIDE_ATTENTION.md](UNKNOWN_PEPTIDE_ATTENTION.md).

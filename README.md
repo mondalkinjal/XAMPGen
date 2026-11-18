@@ -157,16 +157,25 @@ with its poly-lysine-tail variant through a difference map.
 
 ### Attention heatmap analysis on unknown peptides
 
-[ordered_set_figs.py](sequence_gen/ordered_set_figs.py) takes the saved, head-averaged
-attention of P1-P18 at layer 22, transforms it using `motif_common.sym`, and draws
-the panels with the same tag-strip/residue-map layout.
+The unknown/generated peptide attention values are extracted from the original
+`finetuned_progen.pth` by [top10_layers.py](sequence_gen/top10_layers.py), using
+the P1-P18 sequences in [helicity_scan.py](sequence_gen/helicity_scan.py).
+The model reads the Antimicrobial control token followed by the peptide and
+returns causal attention from all 36 layers and 16 heads. The extraction code
+averages the heads and stores a `[36, length+1, length+1]` array per peptide in
+`top10_layers/attn_all_layers.npz`.
 
-**Input:** `top10_layers/attn_all_layers.npz` and the peptide sequences specified
-in the script. **Outputs:** `ordered_set1_split.png`, `ordered_set2_split.png`,
-and `ordered_set3_split.png`. These visualize the patterns discussed for the
-generated and reference peptides in the measured panel. The helical-wheel
-interpretation uses the externally produced MPEx diagrams cited in the paper;
-this script does not calculate those wheel diagrams.
+[ordered_set_figs.py](sequence_gen/ordered_set_figs.py) selects cache index 22,
+uses `motif_common.sym` to subtract the uniform causal baseline and reflect the
+attention triangle, and draws the AMP-tag strip separately from the residue map.
+These signed heatmap values differ from the raw attention probabilities in the
+cache. Outputs are `ordered_set1_split.png`, `ordered_set2_split.png`, and
+`ordered_set3_split.png`.
+
+See [UNKNOWN_PEPTIDE_ATTENTION.md](docs/UNKNOWN_PEPTIDE_ATTENTION.md) for the
+extraction commands, token indexing, equations, cache format, rendering steps,
+and an example for an additional peptide. The helical-wheel interpretation uses
+the externally produced MPEx diagrams cited in the paper.
 
 ### A more granular analysis at specific attention heads and layers
 

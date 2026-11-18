@@ -8,6 +8,7 @@ them to your cluster before submission. Run the LoRA launchers from `sequence_ge
 | --- | --- |
 | [esmfold_bench.sh](../sequence_gen/esmfold_bench.sh) | SLURM job |
 | [known_L22_figs.sh](../sequence_gen/known_L22_figs.sh) | SLURM job |
+| [top10_layers.sh](../sequence_gen/top10_layers.sh) | Original all-layer attention extraction and layer-comparison job; site-specific CPU launcher |
 | [blast_align.sh](../sequence_gen/novelty_analysis/blast_align.sh) | BLAST search or table verification |
 | [verify.sh](../sequence_gen/novelty_analysis/verify.sh) | BLAST search or table verification |
 | [probing_chunks.sh](../sequence_gen/probing_chunks.sh) | SLURM job |

@@ -1,0 +1,24 @@
+{
+  "entries": 26,
+  "shape_matches_36_layers_and_AMP_token": true,
+  "finite": true,
+  "nonnegative": true,
+  "max_probability_row_sum_error": 1.7881393432617188e-07,
+  "max_future_token_attention": 0.0,
+  "identical_TP4_and_P9": true,
+  "full_checkpoint_forward_pass_rerun": false,
+  "original_source_files_sha256": {
+    "top10_layers.py": "2cd72d6fc0e6228dc22e364b67f6e36b6a0713efe1b51bad2f16587cf5f21425",
+    "helicity_scan.py": "d21d148eb835d69f4e3200cd0560bbf68e8dec82b341dbfbda33f8b8da2fdc18",
+    "top10_layers.sh": "7bbb94d6ed3331db3b2a769a157ed2c68a0eed0e91ec10d89a1e14d5275dce54"
+  },
+  "source_files_preserved_byte_for_byte": true,
+  "original_cache_names_match": true,
+  "documented_python_snippets_parse": true,
+  "uniform_causal_baseline_maps_to_zero": true,
+  "manual_two_token_transform_matches_documentation": true,
+  "plotted_matrix_is_signed_and_symmetric": true,
+  "published_cache_blob_sha": "62fe467de3e6eee750baa089da61809c98abd326",
+  "reference_peptides": 8,
+  "measured_panel_peptides": 18
+}
