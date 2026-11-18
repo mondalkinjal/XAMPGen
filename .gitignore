@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*credentials*
+*auth.json
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.log
+slurm-*.out
+*.swp
+*.swo
+.venv/
+reproduced/
+.DS_Store

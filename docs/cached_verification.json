@@ -1,0 +1,14 @@
+{
+  "helicity_scores_match_saved": true,
+  "best_layer": 22,
+  "pearson_r": 0.6946937160226258,
+  "probe_summary_matches_saved": true,
+  "novelty_rows_per_table": 18,
+  "reproduced_from": "saved attention maps, probe results and BLAST alignments",
+  "not_tested": [
+    "training from scratch",
+    "checkpoint inference",
+    "new BLAST database searches",
+    "full filtering pipeline"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "numpy": "2.4.2",
+  "scipy": "1.17.0",
+  "pandas": "3.0.0",
+  "matplotlib": "3.10.8",
+  "scikit-learn": "1.8.0",
+  "biopython": "1.86",
+  "torch": "2.10.0",
+  "transformers": "5.2.0",
+  "peft": "0.18.1",
+  "accelerate": "1.12.0",
+  "tensorboard": null,
+  "tqdm": "4.67.3",
+  "requests": null,
+  "pydantic": null,
+  "injector": null,
+  "torch-geometric": null,
+  "fair-esm": null
+}

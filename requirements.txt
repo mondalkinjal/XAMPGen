@@ -1,0 +1,15 @@
+# Core training, generation, and analysis dependencies. Select CUDA builds separately.
+numpy
+scipy
+pandas
+matplotlib
+scikit-learn
+biopython
+torch
+transformers
+peft
+accelerate
+tensorboard
+tqdm
+# Optional structure-assignment dependency:
+pydssp
