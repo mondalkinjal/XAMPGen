@@ -20,13 +20,15 @@ The pinned [training/generation environment](environment-training-generation.yml
 and [run instructions](docs/TRAINING_GENERATION.md) cover the released ProGen scripts.
 Use the original, single-file **`finetuned_progen.pth`** for generation and
 interpretation. [MODEL_WEIGHTS.md](docs/MODEL_WEIGHTS.md) records its exact size,
-SHA-256, and download status. Its public Google Drive link is pending; the earlier
-split-file distribution has been withdrawn.
+SHA-256, and verification instructions. Download the original checkpoint from
+[Google Drive](https://drive.google.com/file/d/1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W/view?usp=sharing). The public download was verified against the
+original full-file SHA-256; the earlier split-file distribution is withdrawn.
 
 ```bash
 conda env create -f environment-training-generation.yml
 conda activate xampgen-training-generation
-python tools/download_model_weights.py --verify-only /path/to/finetuned_progen.pth
+python -m pip install -r requirements-model-download.txt
+python tools/download_model_weights.py
 ```
 
 For the pretrained ProGen checkpoint, refer to the [original ProGen paper](https://doi.org/10.1038/s41587-022-01618-2)

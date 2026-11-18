@@ -4,9 +4,10 @@ XAMPGen uses the author's original **`finetuned_progen.pth`** checkpoint for bot
 generation and interpretation. It is one unchanged PyTorch file containing the
 model and optimizer states. It is not converted, compressed, split, or stripped.
 
-**Download status:** the original single file is preserved locally. A public
-Google Drive link for this 4.7 GB file is pending. No public download URL is
-configured yet. The earlier split-file release has been withdrawn.
+**Download:** [finetuned_progen.pth — original single file, 4.7 GB](https://drive.google.com/file/d/1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W/view?usp=sharing).
+The complete file was downloaded without a Google login and its SHA-256
+matches the original local checkpoint exactly. The earlier split-file release
+has been withdrawn.
 
 | File | Exact bytes | Use |
 | --- | ---: | --- |
@@ -25,7 +26,7 @@ The same metadata is in [model_manifest.json](../models/model_manifest.json) and
 python tools/download_model_weights.py --verify-only /path/to/finetuned_progen.pth
 ```
 
-Once its public Drive link is configured, download the whole file with:
+Download the original whole file from public Drive with:
 
 ```bash
 python -m pip install -r requirements-model-download.txt

@@ -5,13 +5,21 @@
     "name": "finetuned_progen.pth",
     "bytes": 4665433262,
     "sha256": "b98ddeb00335390744c4c653c3c1f5b72da42a8d05fde4bf5703330e14a0da70",
-    "download_url": null,
+    "download_url": "https://drive.google.com/file/d/1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W/view?usp=sharing",
     "role": "Generation, probing, attention, and motif interpretation",
-    "format": "Original PyTorch checkpoint containing model and optimizer states; unchanged bytes"
+    "format": "Original PyTorch checkpoint containing model and optimizer states; unchanged bytes",
+    "hosting_provider": "Google Drive",
+    "google_drive_file_id": "1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W"
   },
   "local_original_sha256_verified": true,
   "all_three_local_original_checkpoints_unchanged": true,
   "pretrained_checkpoint_redistributed": false,
   "split_release_withdrawn": true,
-  "single_file_public_download_available": false
+  "single_file_public_download_available": true,
+  "anonymous_full_file_download_verified": true,
+  "google_drive_file_id": "1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W",
+  "public_url": "https://drive.google.com/file/d/1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W/view?usp=sharing",
+  "matches_original_checkpoint_byte_for_byte": true,
+  "cookies_from_existing_login_used": false,
+  "verified_at_utc": "2026-11-18T21:47:23.980588+00:00"
 }

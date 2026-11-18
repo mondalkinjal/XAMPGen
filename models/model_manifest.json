@@ -5,9 +5,11 @@
       "name": "finetuned_progen.pth",
       "bytes": 4665433262,
       "sha256": "b98ddeb00335390744c4c653c3c1f5b72da42a8d05fde4bf5703330e14a0da70",
-      "download_url": null,
+      "download_url": "https://drive.google.com/file/d/1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W/view?usp=sharing",
       "role": "Generation, probing, attention, and motif interpretation",
-      "format": "Original PyTorch checkpoint containing model and optimizer states; unchanged bytes"
+      "format": "Original PyTorch checkpoint containing model and optimizer states; unchanged bytes",
+      "hosting_provider": "Google Drive",
+      "google_drive_file_id": "1Z6G65XrvSzs_9oZLMR_rWbf8HZ7wOp_W"
     }
   ],
   "pretrained_progen": {
