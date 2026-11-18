@@ -98,18 +98,6 @@ The generated sequence files must be supplied separately or produced by sampling
 amino-acid composition plots. The saved preprocessing replaces non-standard
 residue symbols according to the mapping defined in that script.
 
-### MIC and biophysical measurements
-
-[correlation_map.py](sequence_gen/correlation_map.py) relates measured antibacterial
-activity to binding, structure, and sequence-derived parameters. These include
-dissociation constants, lipid-binding numbers, maximum fluorescence intensities,
-and helicity. It calculates **Spearman rank correlations**, handles missing
-measurements pairwise, and draws a labeled correlation heatmap.
-
-**Input:** the embedded table of values for the 18 peptides.
-**Output:** `experiment_main_fig_relabelled.png`.
-Check this output against the manuscript figure before replacing that asset.
-
 ## XSI analysis
 
 ### Layer probing
