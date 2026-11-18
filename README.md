@@ -190,23 +190,3 @@ The job-submission and Bash helper files included in this release are listed in
 [JOB_SUBMISSION.md](docs/JOB_SUBMISSION.md). Probe, attention, and structure
 launchers retain their original cluster settings. Their presence does not by
 itself establish which historical job generated a reported result.
-
-## What has been checked
-
-The cached runner [tools/reproduce_cached.py](tools/reproduce_cached.py) recomputes
-the 36-layer helicity scores, reproduces the five-seed probe summary and figures,
-and renders both 18-peptide novelty tables from saved alignments. These checks
-passed; see [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) and
-[cached_verification.json](docs/cached_verification.json).
-
-Python syntax and Bash syntax were checked. Full model training, checkpoint
-inference, the complete candidate-filtering pipeline, and fresh external database
-searches have not been independently rerun. Some plotting scripts retain paths
-to the original manuscript figure directory.
-
-Environment information is in [requirements.txt](requirements.txt),
-[requirements-cached.txt](requirements-cached.txt), and
-[environment-sequence-generation.json](docs/environment-sequence-generation.json).
-These do not constitute one fully resolved environment for every historical script.
-See [THIRD_PARTY.md](docs/THIRD_PARTY.md) for attribution and
-[CITATION.cff](CITATION.cff) for manuscript citation metadata.
