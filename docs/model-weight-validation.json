@@ -22,5 +22,12 @@
   ],
   "parts": 12,
   "part_checksums_verified": true,
-  "binary_weights_uploaded": false
+  "binary_weights_uploaded": true,
+  "release_url": "https://github.com/mondalkinjal/XAMPGen/releases/tag/model-weights-20261118",
+  "release_id": 450215691,
+  "github_asset_sha256_verified": true,
+  "verified_binary_assets": 12,
+  "anonymous_public_downloads_verified": true,
+  "sampled_binary_assets": 12,
+  "release_manifest_download_verified": true
 }

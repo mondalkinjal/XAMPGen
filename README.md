@@ -19,8 +19,15 @@ files are mapped to their original names in [FILENAME_MAP.md](docs/FILENAME_MAP.
 The pinned [training/generation environment](environment-training-generation.yml)
 and [run instructions](docs/TRAINING_GENERATION.md) cover the released ProGen scripts.
 The [model-weight inventory and restore instructions](docs/MODEL_WEIGHTS.md)
-document the three checkpoints and their SHA-256 checksums. Binary weight upload
-is pending authentication; the weights are not yet publicly downloadable.
+document the three checkpoints and their SHA-256 checksums. Download the weights
+from the [model release](https://github.com/mondalkinjal/XAMPGen/releases/tag/model-weights-20261118). The restore tool downloads
+and verifies the checkpoint you select. From the repository root:
+
+```bash
+conda env create -f environment-training-generation.yml
+conda activate xampgen-training-generation
+python tools/restore_model_weights.py --model finetuned_progen.pth
+```
 
 ## Methods and Materials
 
