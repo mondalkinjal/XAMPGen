@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import urllib.parse
 import urllib.request
 
 
@@ -30,6 +31,21 @@ def download(record, output_dir, url=None):
         raise ValueError('A public host for the single original checkpoint has not been configured. '
                          'See docs/MODEL_WEIGHTS.md or pass --url with its download link.')
     pending = destination.with_name(destination.name + '.download')
+    if urllib.parse.urlparse(url).hostname in {'drive.google.com', 'drive.usercontent.google.com'}:
+        try:
+            import gdown
+        except ImportError as error:
+            raise ValueError('Install the Drive downloader with: '
+                             'python -m pip install -r requirements-model-download.txt') from error
+        downloaded = gdown.download(url=url, output=str(pending), fuzzy=True,
+                                    quiet=False, use_cookies=False)
+        if not downloaded:
+            raise ValueError('Drive download failed. Check that the file allows '
+                             'Anyone with the link to view, or download it in your browser.')
+        verify(pending, record)
+        pending.replace(destination)
+        print('Downloaded and verified original checkpoint: ' + str(destination))
+        return
     checksum = hashlib.sha256()
     size = 0
     with urllib.request.urlopen(url, timeout=120) as source:

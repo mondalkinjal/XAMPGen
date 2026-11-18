@@ -20,7 +20,7 @@ The pinned [training/generation environment](environment-training-generation.yml
 and [run instructions](docs/TRAINING_GENERATION.md) cover the released ProGen scripts.
 Use the original, single-file **`finetuned_progen.pth`** for generation and
 interpretation. [MODEL_WEIGHTS.md](docs/MODEL_WEIGHTS.md) records its exact size,
-SHA-256, and download status. Its public hosting link is pending; the earlier
+SHA-256, and download status. Its public Google Drive link is pending; the earlier
 split-file distribution has been withdrawn.
 
 ```bash

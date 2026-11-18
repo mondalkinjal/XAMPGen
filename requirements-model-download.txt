@@ -1,0 +1,2 @@
+# Public Google Drive single-file downloads, including Drive confirmation pages.
+gdown==5.2.0
