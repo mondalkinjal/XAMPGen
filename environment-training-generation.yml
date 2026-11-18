@@ -1,0 +1,8 @@
+name: xampgen-training-generation
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.14
+  - pip=26.0.1
+  - pip:
+      - -r requirements-training-generation.txt

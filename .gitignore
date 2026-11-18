@@ -14,4 +14,8 @@ slurm-*.out
 *.swo
 .venv/
 reproduced/
+model-parts/
+*.pth.part*
+*.assembling
+*.download
 .DS_Store

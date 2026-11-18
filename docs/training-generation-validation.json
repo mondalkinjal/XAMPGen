@@ -1,0 +1,40 @@
+{
+  "python": "3.11.14",
+  "packages": {
+    "torch": "2.10.0",
+    "numpy": "2.4.2",
+    "peft": "0.18.1",
+    "transformers": "5.2.0",
+    "accelerate": "1.12.0",
+    "tensorboard": "2.20.0",
+    "tqdm": "4.67.3",
+    "huggingface-hub": "1.4.1",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.7.0"
+  },
+  "cuda_build": "12.8",
+  "cuda_available": false,
+  "cpu_lora_training_step": true,
+  "smoke_loss": 4.165106296539307,
+  "checkpoints": {
+    "pretrain_progen_full.pth": {
+      "tensors": 580,
+      "names_and_shapes_match": true,
+      "contains_optimizer": false
+    },
+    "finetuned_progen.pth": {
+      "tensors": 724,
+      "names_and_shapes_match": true,
+      "contains_optimizer": true
+    },
+    "finetuned_progen_full.pth": {
+      "tensors": 724,
+      "names_and_shapes_match": true,
+      "contains_optimizer": true
+    }
+  },
+  "limits": [
+    "Small CPU model used for the training step",
+    "Checkpoint tensor names and shapes checked; full-model CUDA inference and multi-GPU training not rerun"
+  ]
+}

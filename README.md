@@ -14,6 +14,14 @@ AMP sequence data -> LoRA fine-tuning -> candidate generation -> AMP/MIC screeni
 The complete script list is in [SOURCE_INDEX.md](docs/SOURCE_INDEX.md), and renamed
 files are mapped to their original names in [FILENAME_MAP.md](docs/FILENAME_MAP.md).
 
+## Training environment and model weights
+
+The pinned [training/generation environment](environment-training-generation.yml)
+and [run instructions](docs/TRAINING_GENERATION.md) cover the released ProGen scripts.
+The [model-weight inventory and restore instructions](docs/MODEL_WEIGHTS.md)
+document the three checkpoints and their SHA-256 checksums. Binary weight upload
+is pending authentication; the weights are not yet publicly downloadable.
+
 ## Methods and Materials
 
 ### Fine-tuning of ProGen
